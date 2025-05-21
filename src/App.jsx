@@ -1,22 +1,21 @@
 import './App.css'
-import SearchAppBar from './AppBar.jsx'
-// import { createTheme } from '@mui/material';
-import { ThemeProvider } from 'styled-components';
+import SearchAppBar from './appBar.jsx'
+import PokemonViewer from './pokemonDetails.jsx'
+import { ThemeProvider } from '@mui/material/styles';
+import React, { useState } from 'react';
+import theme from './theme';
 
 
 function App() {
 
-  // const theme = createTheme({
-  //   typography: {
-  //     fontFamily: 'Press Start 2P',
-  //   },
-  // });
+  const [offset, setOffset] = useState(0);
   
 
   return (
-    <div className='pixel-font'>
+    <ThemeProvider theme={theme}>
     <SearchAppBar />
-    </div>
+    <PokemonViewer offset={offset} setOffset={setOffset}/>
+    </ThemeProvider>
   )
 }
 
