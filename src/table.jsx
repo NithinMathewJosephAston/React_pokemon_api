@@ -32,21 +32,24 @@ export default function BasicTable() {
     },[offset, pokedex])
     
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{ backgroundColor: 'transparent', boxShadow: 'none' }} >
       <Table sx={{ minWidth: 650 }} aria-label="pokemon table">
         <TableHead>
           <TableRow>
-            <TableCell>Sl. No</TableCell>
-            <TableCell align="right">Pokemon Name</TableCell>
-            <TableCell align="right">Pokemon</TableCell>
+            <TableCell sx={{ color: 'white', borderBottom: 'none' }}>Sl. No</TableCell>
+            <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }}>Pokemon Name</TableCell>
+            <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }}>Pokemon</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {Object.entries(rows).map(([index, row]) => (
-            <TableRow key={index}>
-              <TableCell>{row.serial}</TableCell>
-              <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">
+            <TableRow key={index} sx={{
+              backgroundColor: 'transparent', '&:hover': {
+                backgroundColor: 'purple'}, '&:hover td': { color: 'yellow'}
+                }}>
+              <TableCell sx={{ color: 'white', borderBottom: 'none' }}>{row.serial}</TableCell>
+              <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }}>{row.name}</TableCell>
+              <TableCell align="right" sx={{ borderBottom: 'none' }}>
                 <img src={row.sprite} alt={row.name} width={150} height={150} />
               </TableCell>
             </TableRow>

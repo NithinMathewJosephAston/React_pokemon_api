@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 export default function SearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ width: '100vw', background: 'red'}}>
+      <AppBar position="fixed" sx={{ width: '100vw', background: 'purple'}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -17,13 +17,13 @@ export default function SearchAppBar() {
             aria-label="logo"
           >
             <img
-                src="/images/psyduck.png"
+                src="/images/gengar.gif"
                 alt="Psyduck"
-                style={{ width: 30, height: 30 }}
+                style={{ width: 70, height: 60 }}
             />
           </IconButton>  
           <div className='font-medium'>
-            psyduck
+            Gengar
           </div>  
         </Toolbar>
       </AppBar>
