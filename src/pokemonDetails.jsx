@@ -24,7 +24,7 @@ function PokemonViewer() {
   if (loading) return <p>Loading...</p>;
   if (!pokedex) return <p>No data.</p>;
 
-  return (<div style={{ marginTop: '80px', padding: '16px' }}>
+  return (<div style={{ marginTop: '20px', padding: '16px' }}>
   <BasicTable/>
   </div>);
 }

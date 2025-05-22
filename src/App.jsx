@@ -14,6 +14,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <SearchAppBar />
+    <h1 style={{fontSize: '30px', marginTop: '80px', padding: '16px', color: 'white'}}>Pokedex</h1>
     <PokemonViewer offset={offset} setOffset={setOffset}/>
     </ThemeProvider>
   )
