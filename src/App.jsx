@@ -1,13 +1,21 @@
-// import {useState} from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
+import SearchAppBar from './appBar.jsx'
+import PokemonViewer from './pokemonDetails.jsx'
+import { ThemeProvider } from '@mui/material/styles';
+import React, { useState } from 'react';
+import theme from './theme';
+
 
 function App() {
 
+  const [offset, setOffset] = useState(0);
+  
+
   return (
-    <>
-    </>
+    <ThemeProvider theme={theme}>
+    <SearchAppBar />
+    <PokemonViewer offset={offset} setOffset={setOffset}/>
+    </ThemeProvider>
   )
 }
 
