@@ -36,19 +36,19 @@ export default function BasicTable() {
       <Table sx={{ minWidth: 650 }} aria-label="pokemon table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ color: 'white', borderBottom: 'none' }}>Sl. No</TableCell>
-            <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }}>Pokemon Name</TableCell>
-            <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }}>Pokemon</TableCell>
+            <TableCell sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '20px'}}>Sl. No</TableCell>
+            <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '20px'}}>Pokemon Name</TableCell>
+            <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '20px'}}>Pokemon</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {Object.entries(rows).map(([index, row]) => (
             <TableRow key={index} sx={{
               backgroundColor: 'transparent', '&:hover': {
-                backgroundColor: 'purple'}, '&:hover td': { color: 'yellow'}
+                backgroundColor: 'purple'}, '&:hover td': { color: 'pink'}
                 }}>
-              <TableCell sx={{ color: 'white', borderBottom: 'none' }}>{row.serial}</TableCell>
-              <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }}>{row.name}</TableCell>
+              <TableCell sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '18px'}}>{row.serial}</TableCell>
+              <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '18px'}}>{row.name}</TableCell>
               <TableCell align="right" sx={{ borderBottom: 'none' }}>
                 <img src={row.sprite} alt={row.name} width={150} height={150} />
               </TableCell>
