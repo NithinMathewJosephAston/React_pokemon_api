@@ -6,14 +6,15 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { usePokedex } from './pokedexContext';
 
 
-export default function BasicTable({ pokedex, limit, offset }) {
-
+export default function BasicTable() {
+    const { offset, pokedex} = usePokedex();
     const[rows, setRows] = useState({});
 
     useEffect(() => {
-        for (let index = 0; index < limit; index++) {
+        for (let index = 0; index < pokedex.results.length; index++) {
             const pokemon = pokedex.results[index];
             // console.log(limit);
             fetch(pokemon.url).then(d => d.json()).then(img_png => {
@@ -28,7 +29,7 @@ export default function BasicTable({ pokedex, limit, offset }) {
             })
             
         }
-    },[])
+    },[offset, pokedex])
     
   return (
     <TableContainer component={Paper}>

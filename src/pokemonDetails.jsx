@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { usePokedex } from './pokedexContext';
 import BasicTable from './table';
 
 function PokemonViewer() {
-  const [pokedex, setPokedex] = useState([]);
+  const { offset, pokedex, setPokedex, limit } = usePokedex();
   const [loading, setLoading] = useState(true);
 
-  let offset = 0;
-  const limit = 10;
 
   useEffect(() => {
     // Fetch from PokeAPI
@@ -26,7 +25,7 @@ function PokemonViewer() {
   if (!pokedex) return <p>No data.</p>;
 
   return (<div style={{ marginTop: '80px', padding: '16px' }}>
-  <BasicTable pokedex={pokedex} limit={limit} offset={offset}/>
+  <BasicTable/>
   </div>);
 }
 
