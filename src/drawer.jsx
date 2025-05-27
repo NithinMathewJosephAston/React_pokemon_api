@@ -31,16 +31,17 @@ export default function TemporaryDrawer() {
       <Box sx={{ padding: 2 }}>
         {selectedRow && (
         <>
-          <div style={{color:'pink'}}>{selectedRow.species.name.toUpperCase()}</div>
+          <div style={{color:'pink'}} className='font-medium'>{selectedRow.species.name}</div>
           {selectedRow.types && (
           <div>
           <h4 className='font-small' style={{color:'pink'}}>TYPE:</h4>
           {selectedRow.types.map((type, index) => (
-            <Chip color="secondary" key={index} label={type.type.name.toUpperCase()} sx={{ mr:2, fontSize:'8px'}}/>
+            <Chip color="secondary" key={index} label={type.type.name.toUpperCase()} sx={{ mr:1, fontSize:'8px'}}/>
           ))}
           </div>
           )}
           <img src={selectedRow.sprites.front_default} alt={selectedRow.name} width={200} height={200} />
+          <div style={{marginBottom: '2rem'}}>HT {selectedRow.height} WT {selectedRow.weight} lbs</div>
           {selectedRow.abilities && (
           <div>
             <h4 className='font-small' style={{color:'pink'}}>ABILITIES:</h4>
