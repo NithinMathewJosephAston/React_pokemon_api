@@ -54,7 +54,7 @@ export default function BasicTable() {
                 });
             }} 
             sx={{ backgroundColor: 'transparent', '&:hover td': {
-                  backgroundColor: 'rgba(138, 43, 226, 0.3)', color: 'black'}
+                  backgroundColor: 'rgba(230, 225, 255, 1)', color: 'rgba(98, 2, 187, 0.3)'}
                 }}>
               <TableCell sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '18px'}}>{row.serial}</TableCell>
               <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '18px'}}>{row.name}</TableCell>
