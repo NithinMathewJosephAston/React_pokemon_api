@@ -38,11 +38,13 @@ export default function TemporaryDrawer() {
     const primaryType = selectedRow?.types?.[0]?.type?.name;
     const DrawerList = (
     <Box sx={{ width: 300, padding: 2 }}>
-      <List>
+      <List sx={{'&:hover': {
+                  backgroundColor: typeColors[primaryType], color:'white','& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+            color: 'white',},},}}>
         <ListItem key="INFO" disablePadding sx={{color:'purple'}}>
           <ListItemButton onClick={() => setDrawerOpen(false)}>
-            <ListItemIcon>
-                <ChevronRightIcon sx={{ color: 'purple' }} />
+            <ListItemIcon sx={{ color: 'inherit' }}>
+                <ChevronRightIcon />
             </ListItemIcon>
             <ListItemText primary="INFO" />
           </ListItemButton>
