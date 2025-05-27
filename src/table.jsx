@@ -10,7 +10,7 @@ import { usePokedex } from './pokedexContext';
 
 
 export default function BasicTable() {
-    const { offset, pokedex} = usePokedex();
+    const { offset, pokedex, setDrawerOpen, setSelectedRow} = usePokedex();
     const[rows, setRows] = useState({});
 
     useEffect(() => {
@@ -22,7 +22,8 @@ export default function BasicTable() {
                   [index + 1]: {
                     serial: "No." + String(offset + index + 1).padStart(3, '0'),
                     name: pokemon.name,
-                    sprite: img_png.sprites.front_default
+                    sprite: img_png.sprites.front_default,
+                    url: pokemon.url
                   }
                 };
                 setRows(prev => ({...prev, ...row}))
@@ -33,7 +34,7 @@ export default function BasicTable() {
     
   return (
     <TableContainer component={Paper} sx={{ backgroundColor: 'transparent', boxShadow: 'none' }} >
-      <Table sx={{ minWidth: 650 }} aria-label="pokemon table">
+      <Table sx={{ width: "100%"}} aria-label="pokemon table">
         <TableHead>
           <TableRow>
             <TableCell sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '20px'}}>Sl. No</TableCell>
@@ -43,9 +44,17 @@ export default function BasicTable() {
         </TableHead>
         <TableBody>
           {Object.entries(rows).map(([index, row]) => (
-            <TableRow key={index} sx={{
-              backgroundColor: 'transparent', '&:hover': {
-                backgroundColor: 'purple'}, '&:hover td': { color: 'pink'}
+            <TableRow key={index} hover
+            onClick={() => {
+              fetch(row.url)
+                .then(res => res.json())
+                .then(data => {
+                  setSelectedRow(data);      // full JSON info
+                  setDrawerOpen(true);       // open the Drawer
+                });
+            }} 
+            sx={{ backgroundColor: 'transparent', '&:hover': {
+                  backgroundColor: 'purple'}, '&:hover td': { color: 'pink'}
                 }}>
               <TableCell sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '18px'}}>{row.serial}</TableCell>
               <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '18px'}}>{row.name}</TableCell>

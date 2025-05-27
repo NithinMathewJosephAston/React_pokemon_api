@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 export default function SearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ width: '100vw', background: 'purple'}}>
+      <AppBar position="fixed" sx={{ width: '100%', background: 'purple'}}>
         <Toolbar>
           <IconButton
             size="large"

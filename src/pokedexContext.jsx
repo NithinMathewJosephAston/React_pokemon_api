@@ -7,10 +7,12 @@ export const usePokedex = () => useContext(PokedexContext);
 export const PokedexProvider = ({ children }) => {
   const [offset, setOffset] = useState(0);
   const [pokedex, setPokedex] = useState([]);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [selectedRow, setSelectedRow] = useState(null);
   const limit = 10;
 
   return (
-    <PokedexContext.Provider value={{ offset, setOffset, pokedex, setPokedex, limit }}>
+    <PokedexContext.Provider value={{ offset, setOffset, pokedex, setPokedex, drawerOpen, setDrawerOpen, selectedRow, setSelectedRow, limit }}>
       {children}
     </PokedexContext.Provider>
   );
