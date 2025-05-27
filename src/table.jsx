@@ -53,8 +53,10 @@ export default function BasicTable() {
                   setDrawerOpen(true);       // open the Drawer
                 });
             }} 
-            sx={{ backgroundColor: 'transparent', '&:hover td': {
-                  backgroundColor: 'rgba(230, 225, 255, 1)', color: 'rgba(98, 2, 187, 0.3)'}
+            sx={{ backgroundColor: 'transparent', transition: 'border 0.3s ease, box-shadow 0.3s ease', '&:hover': {
+                  border: '2px solid black',
+                  }, '&:hover td': {backgroundColor: 'white', 
+                    color: 'black',}
                 }}>
               <TableCell sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '18px'}}>{row.serial}</TableCell>
               <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '18px'}}>{row.name}</TableCell>
