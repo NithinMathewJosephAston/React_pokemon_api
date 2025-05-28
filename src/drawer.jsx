@@ -68,7 +68,7 @@ export default function TemporaryDrawer() {
           <div>
             <h4 className='font-small' style={{color:'purple'}}>ABILITIES:</h4>
             {selectedRow.abilities.map((ability, index) => (
-              <Chip key={index} label={ability.ability.name.toUpperCase()} sx={{ mr:1, fontSize:'8px', backgroundColor:typeColors[primaryType], color:'white'}}/>
+              <Chip key={index} label={ability.ability.name.toUpperCase()} sx={{ mt:1, mr:1, fontSize:'8px', backgroundColor:typeColors[primaryType], color:'white'}}/>
             ))}
           </div>
           )}

@@ -62,7 +62,7 @@ export default function BasicTable() {
                     color: 'black',}
                 }}>
               <TableCell sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '18px'}}>{row.serial}</TableCell>
-              <TableCell align="right" sx={{ color: 'white', borderBottom: 'none' }} style={{fontSize: '18px'}}>{row.name}</TableCell>
+              <TableCell align="right" sx={{ color: 'white', borderBottom: 'none', textAlign: 'center' }} style={{fontSize: '18px'}}>{row.name}</TableCell>
               <TableCell align="right" sx={{ borderBottom: 'none' }}>
                 <img src={row.sprite} alt={row.name} width={150} height={150} />
               </TableCell>
