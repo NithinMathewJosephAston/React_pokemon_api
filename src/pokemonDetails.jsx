@@ -3,7 +3,7 @@ import { usePokedex } from './pokedexContext';
 import BasicTable from './table';
 
 function PokemonViewer() {
-  const { offset, pokedex, setPokedex, limit } = usePokedex();
+  const { offset, pokedex, setPokedex, limit, setPokemonCount } = usePokedex();
   const [loading, setLoading] = useState(true);
 
 
@@ -14,12 +14,13 @@ function PokemonViewer() {
       .then((data) => {
         setPokedex(data);
         setLoading(false);
+        setPokemonCount(data.count);
       })
       .catch((error) => {
         console.error('Error fetching Pokémon:', error);
         setLoading(false);
       });
-  },[]); 
+  },[offset]); 
 
   if (loading) return <p>Loading...</p>;
   if (!pokedex) return <p>No data.</p>;

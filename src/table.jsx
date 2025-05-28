@@ -14,6 +14,8 @@ export default function BasicTable() {
     const[rows, setRows] = useState({});
 
     useEffect(() => {
+      if (!pokedex?.results?.length) return;
+      setRows({});
         for (let index = 0; index < pokedex.results.length; index++) {
             const pokemon = pokedex.results[index];
             // console.log(limit);
@@ -44,6 +46,7 @@ export default function BasicTable() {
         </TableHead>
         <TableBody>
           {Object.entries(rows).map(([index, row]) => (
+            row.sprite && (
             <TableRow key={index} hover
             onClick={() => {
               fetch(row.url)
@@ -64,6 +67,7 @@ export default function BasicTable() {
                 <img src={row.sprite} alt={row.name} width={150} height={150} />
               </TableCell>
             </TableRow>
+            )
           ))}
         </TableBody>
       </Table>

@@ -10,9 +10,10 @@ export const PokedexProvider = ({ children }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   const limit = 10;
+  const [pokemonCount, setPokemonCount] = useState(0);
 
   return (
-    <PokedexContext.Provider value={{ offset, setOffset, pokedex, setPokedex, drawerOpen, setDrawerOpen, selectedRow, setSelectedRow, limit }}>
+    <PokedexContext.Provider value={{ offset, setOffset, pokedex, setPokedex, drawerOpen, setDrawerOpen, selectedRow, setSelectedRow, limit, pokemonCount, setPokemonCount }}>
       {children}
     </PokedexContext.Provider>
   );
