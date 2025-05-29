@@ -45,7 +45,7 @@ export default function TemporaryDrawer() {
             backdropFilter: 'blur(10px)',
             borderRadius: '16px', mb:1
             }}>
-        <ListItem key="INFO" disablePadding sx={{color:'purple'}}>
+        <ListItem key="INFO" disablePadding>
           <ListItemButton onClick={() => setDrawerOpen(false)}>
             <ListItemIcon sx={{ color: 'inherit' }}>
                 <ChevronRightIcon />
@@ -65,7 +65,7 @@ export default function TemporaryDrawer() {
           <div style={{color:typeColors[primaryType]}} className='font-medium'>{selectedRow.species.name}</div>
           {selectedRow.types && (
           <div>
-          <h4 className='font-small' style={{color:'purple'}}>TYPE:</h4>
+          <h4 className='font-small' style={{color:'black'}}>TYPE:</h4>
           {selectedRow.types.map((type, index) => (
             <Chip key={index} label={type.type.name.toUpperCase()} sx={{ mr:1, fontSize:'8px', backgroundColor:typeColors[type.type.name], color: 'white'}}/>
           ))}
@@ -75,7 +75,7 @@ export default function TemporaryDrawer() {
           <div style={{marginBottom: '2rem', color:typeColors[primaryType]}}>HT {selectedRow.height} WT {selectedRow.weight} lbs</div>
           {selectedRow.abilities && (
           <div>
-            <h4 className='font-small' style={{color:'purple'}}>ABILITIES:</h4>
+            <h4 className='font-small' style={{color:'black'}}>ABILITIES:</h4>
             {selectedRow.abilities.map((ability, index) => (
               <Chip key={index} label={ability.ability.name.toUpperCase()} sx={{ mt:1, mr:1, fontSize:'8px', backgroundColor:typeColors[primaryType], color:'white'}}/>
             ))}
@@ -83,7 +83,7 @@ export default function TemporaryDrawer() {
           )}
           {selectedRow.moves && (
           <div>
-          <h4 className='font-small' style={{color:'purple'}}> MOVES:</h4>
+          <h4 className='font-small' style={{color:'black'}}> MOVES:</h4>
           {selectedRow.moves?.slice(0,8).map((move, index) => (
             <Chip key={index} label={move.move.name.toUpperCase()} sx={{mt:1,  mr:1, fontSize:'8px', backgroundColor:typeColors[primaryType], color:'white'}}/>
           ))}
