@@ -37,9 +37,14 @@ export default function TemporaryDrawer() {
     const { drawerOpen, selectedRow, setDrawerOpen} = usePokedex();
     const primaryType = selectedRow?.types?.[0]?.type?.name;
     const DrawerList = (
-    <Box sx={{ width: 350, padding: 2 }}>
+    <Box sx={{ width: 350,
+      padding: 2 ,
+      }}>
       <List sx={{ backgroundColor: typeColors[primaryType], color:'white','& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-            color: 'white',},}}>
+            color: 'white',},
+            backdropFilter: 'blur(10px)',
+            borderRadius: '16px', mb:1
+            }}>
         <ListItem key="INFO" disablePadding sx={{color:'purple'}}>
           <ListItemButton onClick={() => setDrawerOpen(false)}>
             <ListItemIcon sx={{ color: 'inherit' }}>
@@ -50,7 +55,11 @@ export default function TemporaryDrawer() {
         </ListItem>
       </List>
       {/* <Divider /> */}
-      <Box sx={{ padding: 2 }}>
+      <Box sx={{ padding: 2, background: 'rgba(255, 255, 255, 0.1)',
+      backdropFilter: 'blur(10px)',
+      borderRadius: '16px',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.25)',
+      color: 'white' }}>
         {selectedRow && (
         <>
           <div style={{color:typeColors[primaryType]}} className='font-medium'>{selectedRow.species.name}</div>
@@ -94,7 +103,7 @@ export default function TemporaryDrawer() {
         slotProps={{
           paper: {
             sx:{
-              backgroundColor: 'rgba(230, 225, 255, 1)',
+              backgroundColor: 'white',
               color: 'purple',
             },
           },
