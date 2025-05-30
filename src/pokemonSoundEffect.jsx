@@ -4,7 +4,7 @@ const AppBarTitleWithSound = ({children}) => {
   const hoverSoundRef = useRef(null);
 
   useEffect(() => {
-    hoverSoundRef.current = new Audio('sounds/pokemonApiOP.ogg');
+    hoverSoundRef.current = new Audio('sounds/typewriter.mp3');
     hoverSoundRef.current.preload = 'auto'; // Preload the audio
   }, []);
 

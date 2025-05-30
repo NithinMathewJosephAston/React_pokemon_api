@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import ScrambleText from './scramblerText';
+import ScrambleWithSound from './scrambleWithSound.jsx';
 
 
 export default function SearchAppBar() {
@@ -24,7 +24,7 @@ export default function SearchAppBar() {
             />
           </IconButton>  
           <div className='font-medium'>
-          <ScrambleText text="Gengar" />
+          <ScrambleWithSound label="Gengar" />
           </div>  
         </Toolbar>
       </AppBar>

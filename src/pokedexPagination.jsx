@@ -11,7 +11,7 @@ export default function PaginationRounded() {
         page={offset / limit + 1}
         onChange={(event, value) => setOffset((value - 1) * limit)}
         sx={{ 
-            mt: 4, 
+            mt: 4,
             display: 'flex', 
             justifyContent: 'center', 
             '& .MuiPaginationItem-root': 

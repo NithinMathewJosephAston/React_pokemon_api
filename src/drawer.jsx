@@ -10,7 +10,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Chip } from '@mui/material';
-import ScrambleText from './scramblerText';
+import ScrambleWithSound from './scrambleWithSound.jsx';
 
 export default function TemporaryDrawer() {
     
@@ -63,7 +63,7 @@ export default function TemporaryDrawer() {
       color: 'white' }}>
         {selectedRow && (
         <>
-          <div style={{color:typeColors[primaryType]}} className='font-medium'><ScrambleText text={selectedRow.species.name} /></div>
+          <div style={{color:typeColors[primaryType]}} className='font-medium'><ScrambleWithSound label={selectedRow.species.name} /></div>
           {selectedRow.types && (
           <div>
           <h4 className='font-small' style={{color:'black'}}>TYPE:</h4>
