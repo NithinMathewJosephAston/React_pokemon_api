@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import TemporaryDrawer from './drawer.jsx';
 import PaginationRounded from './pokedexPagination.jsx';
 import theme from './theme';
+import ScrambleWithSound from './ScrambleWithSound';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <SearchAppBar />
-    <h1 style={{fontSize: '30px', marginTop: '80px', padding: '16px', color: 'white'}}>Pokedex</h1>
+    <h1 style={{fontSize: '40px', marginTop: '80px', padding: '16px', color: 'white'}}><ScrambleWithSound label='Pokedex' /></h1>
     <PokemonViewer offset={offset} setOffset={setOffset}/>
     <TemporaryDrawer />
     <PaginationRounded />

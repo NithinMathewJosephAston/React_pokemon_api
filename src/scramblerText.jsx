@@ -28,7 +28,7 @@ const ScrambleText = ({ text }) => {
   return (
     <span
       onMouseEnter={scramble}
-      style={{ cursor: "pointer", display: "inline-block" }}
+      style={{ cursor: "pointer"}}
     >
       {displayText}
     </span>
