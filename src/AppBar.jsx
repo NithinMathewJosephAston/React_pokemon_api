@@ -3,6 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
+import ScrambleText from './scramblerText';
 
 
 export default function SearchAppBar() {
@@ -18,12 +19,12 @@ export default function SearchAppBar() {
           >
             <img
                 src="/images/gengar.gif"
-                alt="Psyduck"
+                alt="Gengar"
                 style={{ width: 70, height: 60 }}
             />
           </IconButton>  
           <div className='font-medium'>
-            Gengar
+          <ScrambleText text="Gengar" />
           </div>  
         </Toolbar>
       </AppBar>

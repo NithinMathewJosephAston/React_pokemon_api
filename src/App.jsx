@@ -5,7 +5,6 @@ import { ThemeProvider } from '@mui/material/styles';
 import React, { useState } from 'react';
 import TemporaryDrawer from './drawer.jsx';
 import PaginationRounded from './pokedexPagination.jsx';
-
 import theme from './theme';
 
 
