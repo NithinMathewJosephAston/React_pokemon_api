@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const AppBarTitleWithSound = ({children}) => {
+const AppBarTitleWithSound = ({children, soundEnabled}) => {
   const hoverSoundRef = useRef(null);
 
   useEffect(() => {
@@ -9,7 +9,7 @@ const AppBarTitleWithSound = ({children}) => {
   }, []);
 
   const handleHover = () => {
-    if (hoverSoundRef.current) {
+    if (soundEnabled && hoverSoundRef.current) {
         hoverSoundRef.current.currentTime = 0;
         hoverSoundRef.current.play();
         setTimeout(() => {

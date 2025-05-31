@@ -35,7 +35,7 @@ export default function TemporaryDrawer() {
     fairy: '#D685AD',
   };
   
-    const { drawerOpen, selectedRow, setDrawerOpen} = usePokedex();
+    const { drawerOpen, selectedRow, setDrawerOpen, soundEnabled} = usePokedex();
     const primaryType = selectedRow?.types?.[0]?.type?.name;
     const DrawerList = (
     <Box sx={{ width: 350,
@@ -63,7 +63,7 @@ export default function TemporaryDrawer() {
       color: 'white' }}>
         {selectedRow && (
         <>
-          <div style={{color:typeColors[primaryType]}} className='font-medium'><ScrambleWithSound label={selectedRow.species.name} /></div>
+          <div style={{color:typeColors[primaryType]}} className='font-medium'><ScrambleWithSound label={selectedRow.species.name} soundEnabled={soundEnabled} /></div>
           {selectedRow.types && (
           <div>
           <h4 className='font-small' style={{color:'black'}}>TYPE:</h4>
