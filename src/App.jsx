@@ -1,5 +1,5 @@
 import './App.css'
-import SearchAppBar from './appBar.jsx';
+import SearchAppBar from './AppBar.jsx';
 import PokemonViewer from './pokemonDetails.jsx';
 import { ThemeProvider } from '@mui/material/styles';
 import React, { useState } from 'react';
