@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import ScrambleWithSound from './scrambleWithSound.jsx';
 import { usePokedex } from './pokedexContext.jsx';
+import gengarGif from '/images/gengar.gif';
 
 
 export default function SearchAppBar({children}) {
@@ -20,7 +21,7 @@ export default function SearchAppBar({children}) {
             aria-label="logo"
           >
             <img
-                src="/images/gengar.gif"
+                src={gengarGif}
                 alt="Gengar"
                 style={{ width: 70, height: 60 }}
             />
