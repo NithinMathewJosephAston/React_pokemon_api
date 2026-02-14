@@ -2,7 +2,7 @@ import './App.css'
 import SearchAppBar from './AppBar.jsx';
 import PokemonViewer from './pokemonDetails.jsx';
 import { ThemeProvider } from '@mui/material/styles';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TemporaryDrawer from './drawer.jsx';
 import PaginationRounded from './pokedexPagination.jsx';
 import theme from './theme';
@@ -15,14 +15,35 @@ import { Tooltip, Box } from '@mui/material';
 function App() {
   const { soundEnabled, setSoundEnabled} = usePokedex();
   const [offset, setOffset] = useState(0);
+  const [tooltipPlacement, setTooltipPlacement] = useState('bottom');
   const handleToggle = () => {
     setSoundEnabled((prev) => !prev);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const threshold = windowHeight / 2;
+  
+      if (scrollY > threshold) {
+        setTooltipPlacement('top');  // show tooltip above when scrolled down
+      } else {
+        setTooltipPlacement('bottom'); // show tooltip below when at top
+      }
+      console.log(scrollY,": Scrolly");
+      console.log(threshold, ": threshold");
+      console.log(tooltipPlacement, ": tooltipplacement");
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
     <SearchAppBar>
-      <Tooltip title="Scroll down to explore!" slotProps={{tooltip: {
+      <Tooltip title={`Scroll to the ${tooltipPlacement} to explore!`} slotProps={{tooltip: {
         sx: {
           backgroundColor: 'white', // background color
           color: 'black',           // text color
@@ -31,7 +52,6 @@ function App() {
           borderRadius: '8px',
           textAlign: 'center',
           maxWidth: 'none',
-          mr:'300px'
         },
       }
       }}>
