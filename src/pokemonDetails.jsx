@@ -9,7 +9,7 @@ function PokemonViewer() {
 
   useEffect(() => {
     // Fetch from PokeAPI
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
+    fetch(`http://localhost:8000/api/pokemon?limit=${limit}&offset=${offset}`)
       .then((result) => result.json())
       .then((data) => {
         setPokedex(data);

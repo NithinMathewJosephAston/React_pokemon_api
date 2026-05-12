@@ -18,14 +18,15 @@ export default function BasicTable() {
       setRows({});
         for (let index = 0; index < pokedex.results.length; index++) {
             const pokemon = pokedex.results[index];
-            // console.log(limit);
-            fetch(pokemon.url).then(d => d.json()).then(img_png => {
+            const id = pokemon.url.split('/').filter(Boolean).pop();
+            fetch(`http://localhost:8000/api/pokemon/${id}`).then(d => d.json()).then(detail => {
                 let row = {
                   [index + 1]: {
                     serial: "No." + String(offset + index + 1).padStart(3, '0'),
                     name: pokemon.name,
-                    sprite: img_png.sprites.front_default,
-                    url: pokemon.url
+                    sprite: detail.sprites.front_default,
+                    url: pokemon.url,
+                    detail: detail
                   }
                 };
                 setRows(prev => ({...prev, ...row}))
@@ -49,12 +50,8 @@ export default function BasicTable() {
             row.sprite && (
             <TableRow key={index} hover
             onClick={() => {
-              fetch(row.url)
-                .then(res => res.json())
-                .then(data => {
-                  setSelectedRow(data);      // full JSON info
-                  setDrawerOpen(true);       // open the Drawer
-                });
+              setSelectedRow(row.detail);
+              setDrawerOpen(true);
             }} 
             sx={{ backgroundColor: 'transparent', transition: 'border 0.3s ease, box-shadow 0.3s ease', '&:hover': {
                   border: '2px solid black',
